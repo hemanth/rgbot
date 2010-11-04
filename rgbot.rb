@@ -29,6 +29,16 @@ class L33ty
          self.deliver(msg,JSON.parse(Net::HTTP.get_response(URI.parse(gurl)).body)['responseData']['results'][0]['url'])  
     end
 
+    def xkcd(msg)
+       uri = URI.parse 'http://dynamic.xkcd.com/random/comic/'
+       req = Net::HTTP::Get.new(uri.request_uri)
+       http = Net::HTTP.new(uri.host)
+       res = http.start { |server|
+       server.request(req)
+       }
+       self.deliver(msg,res["location"]+ " Enjoy it!")
+    end
+
     def main   
         while (true) do  
              @jabber.received_messages do |msg|  
