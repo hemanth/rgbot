@@ -73,6 +73,10 @@ class L33ty
         self.deliver(@msg,(1..6).to_a.choice)
     end
 
+    def fortune(msg)
+       IO.popen("fortune") { |cmd| self.deliver(@msg,cmd.gets) }
+    end
+
     def main   
         while (true) do  
              @jabber.received_messages do |@msg|  
