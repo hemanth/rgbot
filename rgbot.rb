@@ -27,6 +27,9 @@ class L33ty
         @jabber.deliver(@msg.from.node+"@gmail.com",res)
     end
 
+    def help(msg)
+        self.deliver(@msg,"Try l33t <str>,goog <str>, xkcd, flip, flop, roll, fortune, karma nick++/--")
+    end
     def l33t(msg)
         puts URI.escape(@msg.body, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
         self.deliver(@msg,open('http://nyhacker.org/~hemanth.hm/hacks/t.php?'+ URI.escape(@msg.body, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))).read())
