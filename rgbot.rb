@@ -50,21 +50,22 @@ class L33ty
      def karma(msg)
         kdb = DBM.open("karma.db")
         whom,what = @msg.body.split(/(?=\+\+)|(?=\-\-)/)
-        puts whom
-        if(kdb[whom] == nil)
-           kdb[whom]=0
-           self.deliver(@msg,"New avatra, your karma is 0")
-           elsif(whom <=> @msg.from.node)
+        if (what.nil?)
+           self.deliver(@msg,"Karma of "+whom+" : "+kdb[whom])
+           elsif(kdb[whom].nil?)
+               kdb[whom]=0
+               self.deliver(@msg,"New avatra, your karma is 0")
+           elsif((whom <=> @msg.from.node) == 0)
                kdb[whom]=kdb[whom].to_i-1
                self.deliver(@msg,"Very smart! your karma is : "+kdb[whom])
-           elsif(what <=> "++")
+           elsif((what <=> "++") == 0)
                kdb[whom]=kdb[whom].to_i+1
                self.deliver(@msg,"Karma is : "+kdb[whom])
-           elsif(what <=> "--")
+           elsif((what <=> "--")== 0)
                kdb[whom]=kdb[whom].to_i-1
                self.deliver(@msg,"Karma is : "+kdb[whom])
            else
-               self.deliver(@msg,"Wrong useage!")
+              self.deliver(@msg,"Wrong usage! Do karma "+whom+" ++ or --")
         end
      end
 
