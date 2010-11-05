@@ -77,6 +77,12 @@ class L33ty
        IO.popen("fortune") { |cmd| self.deliver(@msg,cmd.gets) }
     end
 
+    def greet(msg)
+        if(!@msg.body.nil?)
+           self.deliver(@msg,"Hey "+@msg.body+" :)")
+        end
+    end
+    
     def main   
         while (true) do  
              @jabber.received_messages do |@msg|  
