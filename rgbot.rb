@@ -69,7 +69,10 @@ class L33ty
         end
      end
 
-    
+    def roll(msg)
+        self.deliver(@msg,(1..6).to_a.choice)
+    end
+
     def main   
         while (true) do  
              @jabber.received_messages do |@msg|  
