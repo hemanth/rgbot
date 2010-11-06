@@ -145,6 +145,7 @@ class L33ty
     end
 
     def flop(msg)
+        # Flop for fun ;)
         self.deliver(@msg,"Flip it!")
     end
 
