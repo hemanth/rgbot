@@ -27,4 +27,6 @@ Get the dependencies if on a Debian based system by typing the below, or else ge
         Add l33ty.l33t@gmail.com
 
 ## Demo
+        HD => http://vimeo.com/16556516
         http://player.vimeo.com/video/16556516
+
