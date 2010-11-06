@@ -27,6 +27,8 @@ class L33ty
         @pass = bot_password
         # Make a connection 
         @jabber = Jabber::Simple.new(@bot,@pass)
+        # Set status message
+        @jabber.status(:chat,"Hey there  find me at https://github.com/hemanth/rgbot do see my demo at http://vimeo.com/16556516")
     end
     
     def invoke(msg)
