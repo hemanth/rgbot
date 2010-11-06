@@ -140,6 +140,7 @@ class L33ty
     end
 
     def flip(msg)
+        # Coin flip 
         self.deliver(@msg,['head','tail'].choice)
     end
 
