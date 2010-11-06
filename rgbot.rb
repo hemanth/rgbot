@@ -45,7 +45,7 @@ class L33ty
             self.send(meth,@msg)
         else
             # If not then alter the user of what he can do
-            self.deliver(@msg,"I don't get what your are saying "+@msg.from.node+", but you can teach me @ https://github.com/hemanth/rgbot"    )
+            self.deliver(@msg,"I don't get what your are saying "+@msg.from.node+", but you can teach me @ https://github.com/hemanth/rgbot Try l33t <str>, goog <str>, xkcd, flip, flop, roll, greet, fortune, karma nick++/-- ")
         end
     end
     
