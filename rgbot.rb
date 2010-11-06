@@ -50,6 +50,8 @@ class L33ty
     end
     
     def deliver(msg,res)
+        # A helper method to deliver the message to the one who pingged the bot
+        # @msg.from.node would be the gmail user who is talking to the bot
         @jabber.deliver(@msg.from.node+"@gmail.com",res)
     end
 
