@@ -154,10 +154,14 @@ class L33ty
         self.deliver(@msg,"Hey "+@msg.from.node+" :)")
     end
   
-    def main   
-        while (true) do  
-             @jabber.received_messages do |@msg|  
+    def main
+        # The main method meant to loop and recive msgs from the chat clinet
+        while (true) do
+             # An infinte loop to keep receving msgs  
+             @jabber.received_messages do |@msg|
+             # For each msg recevied do log it  
              File.open('log', 'w') {|log| log.write(@msg.from.node+" : "+@msg.body)}
+             # Call the invoke method
              self.invoke(@msg)
            end
         end
