@@ -56,6 +56,7 @@ class L33ty
     end
 
     def help(msg)
+        # This would deliver a simple help message for using the bot
         self.deliver(@msg,"Try l33t <str>, goog <str>, xkcd, flip, flop, roll, greet, fortune, karma nick++/--")
     end
     
