@@ -25,3 +25,6 @@ Get the dependencies if on a Debian based system by typing the below, or else ge
 
 ## Add chat bot to your contact
         Add l33ty.l33t@gmail.com
+
+## Demo
+        http://player.vimeo.com/video/16556516
