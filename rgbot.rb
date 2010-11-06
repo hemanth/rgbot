@@ -85,26 +85,38 @@ class L33ty
     end
     
      def karma(msg)
+        # This used dbm of ruby, it maintains the karma for user names
         kdb = DBM.open("karma.db")
         if(@msg.body.empty?)
+           # If the user does not specify the user name after karma
            self.deliver(@msg,"Wrong usage! Do karma nick ++ or --")
         else 
+           # Split the body to get the user and ++ or -- as whom and what
            whom,what = @msg.body.split(/(?=\+\+)|(?=\-\-)/)
            if (what.nil? && !kdb[whom].nil?)
+               # If what is not specified and user is present
+               # Display his current karma
                self.deliver(@msg,"Karma of "+whom+" : "+kdb[whom])
                elsif(kdb[whom].nil?)
+               # If the user whoes karma is varied is not present add him
+               # set his karma to 0 that is the inital state
                   kdb[whom]=0
                   self.deliver(@msg,"New avatra, your karma is 0")
                elsif((whom <=> @msg.from.node) == 1)
+                  # If the user himself tries to vary his own karma
+                  # No he cant he gets a -ve karam for doing bad deeds
                   kdb[whom]=kdb[whom].to_i-1
                   self.deliver(@msg,"Very smart! your karma is : "+kdb[whom])
                elsif((what <=> "++") == 0)
+                  # If karma need a ++
                   kdb[whom]=kdb[whom].to_i+1
                   self.deliver(@msg,"Karma is : "+kdb[whom])
                elsif((what <=> "--")== 0)
+                  # If karam needs a --
                   kdb[whom]=kdb[whom].to_i-1
                   self.deliver(@msg,"Karma is : "+kdb[whom])
            else
+              # Wrong usage!
               self.deliver(@msg,"Wrong usage! Do karma "+whom+" ++ or --")
         end
      end
