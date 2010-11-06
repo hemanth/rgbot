@@ -74,6 +74,7 @@ class L33ty
     end
 
     def xkcd(msg)
+       # This method gets random comic links from xkcd, the uri is the redirected location found in the resp headers
        uri = URI.parse 'http://dynamic.xkcd.com/random/comic/'
        req = Net::HTTP::Get.new(uri.request_uri)
        http = Net::HTTP.new(uri.host)
