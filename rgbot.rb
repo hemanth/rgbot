@@ -22,8 +22,10 @@
 class L33ty
 
     def initialize(bot_name,bot_password)
+        # Initialize bot name and password
         @bot  =  bot_name
         @pass = bot_password
+        # Make a connection 
         @jabber = Jabber::Simple.new(@bot+'@gmail.com',@pass)
     end
     
