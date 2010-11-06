@@ -21,12 +21,12 @@
 
 class L33ty
 
-    def initialize(bot_name,bot_password)
+    def initialize(bot_id,bot_password)
         # Initialize bot name and password
-        @bot  =  bot_name
+        @bot  = bot_id
         @pass = bot_password
         # Make a connection 
-        @jabber = Jabber::Simple.new(@bot+'@gmail.com',@pass)
+        @jabber = Jabber::Simple.new(@bot,@pass)
     end
     
     def invoke(msg)
@@ -169,6 +169,6 @@ class L33ty
     end 
 end
 
-l33t = L33ty.new('gmail_user_name','password')
+l33t = L33ty.new('jabber or gmail id as username@host','password')
 l33t.main()
 
