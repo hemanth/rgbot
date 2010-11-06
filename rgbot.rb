@@ -19,7 +19,6 @@
 * License:GNU GPLv3
 =end
 
-
 class L33ty
 
     def initialize(bot_name,bot_password)
@@ -35,7 +34,7 @@ class L33ty
         if (self.respond_to?(meth) and !restricted_methods.include?(meth))
             self.send(meth,@msg)
         else
-            self.help(msg)
+            self.deliver(@msg,"I don't get what your are saying "+@msg.from.node+", but you can teach me @ https://github.com/hemanth/rgbot"    )
         end
     end
     
