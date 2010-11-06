@@ -30,3 +30,6 @@ Get the dependencies if on a Debian based system by typing the below, or else ge
         HD => http://vimeo.com/16556516
         http://player.vimeo.com/video/16556516
 
+## TODO
+* Make this work with conference
+* Implement Markov_chain and NLP
