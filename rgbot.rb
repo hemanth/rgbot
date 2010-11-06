@@ -30,12 +30,21 @@ class L33ty
     end
     
     def invoke(msg)
+        # This method takes care of invokation of the required 
+        # method from the factoid that the user throws at.
+        
+        # The below are the restricted methods, that must not be invoked
         restricted_methods=['main','invoke','deliver']
+        # Get the method name from the chat msg
         meth=@msg.body.split()[0]
+        # Remove the method name from the chat msg and save the rest
         @msg.body=@msg.body.sub(/\w+\s*/, '')
         if (self.respond_to?(meth) and !restricted_methods.include?(meth))
+            # If the method to be invoked is present and is not a restricted one then invoke it.
+            # Use obj.send(method,args) => method(args) similar to py's getattr
             self.send(meth,@msg)
         else
+            # If not then alter the user of what he can do
             self.deliver(@msg,"I don't get what your are saying "+@msg.from.node+", but you can teach me @ https://github.com/hemanth/rgbot"    )
         end
     end
