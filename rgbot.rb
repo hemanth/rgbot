@@ -128,6 +128,7 @@ class L33ty
     end
 
     def fortune(msg)
+       # Return a result of fortune sys command
        IO.popen("fortune") { |cmd| self.deliver(@msg,cmd.gets) }
     end
     
