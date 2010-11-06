@@ -61,6 +61,8 @@ class L33ty
     end
     
     def l33t(msg)
+        # This method does the l33t translation using the API from http://www.h3manth.com/content/l33t-translator
+        # The @msg.body which has the data to be translated is been escpaed for url data and the response is read
         self.deliver(@msg,open('http://nyhacker.org/~hemanth.hm/hacks/t.php?'+ URI.escape(@msg.body, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))).read())
     end
 
