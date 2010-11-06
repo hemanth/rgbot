@@ -123,6 +123,7 @@ class L33ty
     end
    
     def roll(msg)
+        # Return a random choice from an array of 1-6 that is simulating a dice
         self.deliver(@msg,(1..6).to_a.choice)
     end
 
