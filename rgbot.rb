@@ -150,6 +150,7 @@ class L33ty
     end
 
     def hi(msg)
+        # Simple hello msg
         self.deliver(@msg,"Hey "+@msg.from.node+" :)")
     end
   
