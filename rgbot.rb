@@ -6,6 +6,19 @@
  require 'httpclient'
  require 'dbm'
 
+=begin
+* Name:rgbot 
+* Description : rgbot is an XMPP bot build with ruby, that runs on gmail and can do things like :
+  * l33t translation 
+  * Google I'm feeling lucky search 
+  * Karma system
+  * XCKD random images
+  * Flipping a coin, throwing the dice
+* Author:Hemanth.HM <hemanth.hm@gmail.com>
+* Date:5/11/2009
+* License:GNU GPLv3
+=end
+
 
 class L33ty
 
