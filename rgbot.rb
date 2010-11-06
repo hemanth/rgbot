@@ -133,6 +133,7 @@ class L33ty
     end
     
     def greet(msg)
+        # Greet the user name specified
         if(!@msg.body.nil?)
            self.deliver(@msg,"Hey "+@msg.body+" :)")
         end
