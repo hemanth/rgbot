@@ -67,6 +67,8 @@ class L33ty
     end
 
     def goog(msg)
+         # This method used the google ajax search API which returns and JSON, that is parsed to get the first url 
+         # This is a linear implementation of I'm feeling lucky search
          gurl = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+URI.escape(@msg.body, Regexp.new("[^#{URI::PATTERN::UNRESERVED}]"))
          self.deliver(@msg,JSON.parse(Net::HTTP.get_response(URI.parse(gurl)).body)['responseData']['results'][0]['url'])  
     end
